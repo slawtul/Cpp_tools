@@ -4,7 +4,7 @@
 
 sort_files program sorts image and movie files to quarter folders
 
-Example:
+Description:
 ```text
 BEFORE:
 /resources
@@ -25,4 +25,14 @@ AFTER:
         /2017/4/movie_1.mp4
         /2018/1/movie_0.mov
 ```
- 
+Usage:
+```text
+[slawtul@localhost family]$ ./sort_files
+program: sort_files
+please confirm you want to run it inside "/home/slawtul/family" [y/n]
+
+```
+Download:
+```text
+Cpp_tools/bin/linux/sort_files
+```
