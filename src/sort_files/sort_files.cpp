@@ -1,36 +1,40 @@
 #include <iostream>
 #include <filesystem>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include "sort_files_utils.h"
 
 namespace fs = std::filesystem;
 
 int main()
 {
-    std::cout << "sort_files\n";
+    std::cout << "program: sort_files\n";
     fs::create_directory(fs::current_path().append("photos"));
     fs::create_directory(fs::current_path().append("movies"));
 
-    int img_cnt = 0;
-    int mov_cnt = 0;
+    int img_counter = 0;
+    int mov_counter = 0;
     for (const auto &file : fs::directory_iterator(fs::current_path())) {
-        if (file.is_directory()) continue;
-        if (is_file_with_ext(file, {".jpg", ".png", ".raw"})) {
-            std::cout << file.path() << " : ";
-            img_cnt++;
-            auto[year, month] = get_year_and_month(file);
-            std::cout << year << ", " << month << "\n";
-            fs::create_directory(
-                fs::current_path().assign("photos").append(year)
-                    .append(std::to_string(quarter(month)))
+        if (file.is_directory()) {
+            continue;
+        }
+        const auto &f_path = file.path();
+        auto f_ext = f_path.extension().string();
+        std::transform(f_ext.begin(), f_ext.end(), f_ext.begin(), ::tolower);
+        if (f_ext.empty() || f_ext == ".") {
+            continue;
+        }
+        if (has_ext(f_ext, {".jpg", ".png", ".raw", ".mov", ".mp4", ".arw"})) {
+            img_counter++;
+            const auto&[year, month] = get_year_and_month(file);
+            const std::string_view qrt = std::to_string(quarter(month));
+            f_print(f_path, year, month, qrt);
+            fs::create_directories(
+                fs::current_path().assign(dest_folder(f_ext)).append(year).append(qrt)
             );
         }
-        if (is_file_with_ext(file, {".mp4", ".mov"})) {
-            mov_cnt++;
-        }
     }
-    std::cout << "found: " << img_cnt << " images\n";
-    std::cout << "found: " << mov_cnt << " movies\n";
+    std::cout << "found: " << img_counter << " images\n";
+    std::cout << "found: " << mov_counter << " movies\n";
     return 0;
 }
