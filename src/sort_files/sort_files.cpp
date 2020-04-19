@@ -37,7 +37,7 @@ int main()
             continue;
         }
         if (has_ext(f_ext, {".jpg", ".png", ".gif", ".raw", ".arw", ".mov", ".mp4", ".mts", ".vob"})) {
-            const auto&[year, month] = get_year_and_month(file);
+            const auto&[year, month] = year_and_month(file);
             const auto &quart = std::to_string(quarter(month));
             const auto
                 res_path = current_path.assign(dest_folder(f_ext)).append(year).append(quart);
