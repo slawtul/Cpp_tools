@@ -39,7 +39,7 @@ std::pair<std::string, std::string> get_year_and_month(
 
 const std::unordered_map<std::string_view, std::string_view> ext_to_dest{
     {".jpg", "photos"}, {".png", "photos"}, {".raw", "photos"}, {".arw", "photos"},
-    {".mp4", "movies"}, {".mov", "movies"},
+    {".mp4", "movies"}, {".mov", "movies"}, {".mts", "movies"}, {".vob", "movies"},
 };
 
 std::string_view dest_folder(const std::string_view &ext)

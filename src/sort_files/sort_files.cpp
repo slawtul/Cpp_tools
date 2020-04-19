@@ -36,7 +36,7 @@ int main()
         if (f_ext.empty() || f_ext == ".") {
             continue;
         }
-        if (has_ext(f_ext, {".jpg", ".png", ".gif", ".raw", ".arw", ".mov", ".mp4"})) {
+        if (has_ext(f_ext, {".jpg", ".png", ".gif", ".raw", ".arw", ".mov", ".mp4", ".mts", ".vob"})) {
             const auto&[year, month] = get_year_and_month(file);
             const auto &quart = std::to_string(quarter(month));
             const auto
