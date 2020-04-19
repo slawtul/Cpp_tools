@@ -15,13 +15,14 @@ BEFORE:
     /movie_1.mp4 (created at: December 2017 / q4)
 
 AFTER:
+(file names are transformed to lowercase)
 /resources
     /photos
-        /2019/2/image_1.JPG
+        /2019/2/image_1.jpg
         /2020/1/image_2.png
         /2020/2/image_0.jpg
     /movies
         /2017/4/movie_1.mp4
-        /2018/1/movie_0.MOV
+        /2018/1/movie_0.mov
 ```
  
