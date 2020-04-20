@@ -1,7 +1,7 @@
 #ifndef SORT_FILES_UTILS_H
 #define SORT_FILES_UTILS_H
 
-bool has_ext(const std::string_view &f_ext, const std::vector<std::string> &extensions)
+bool has_ext(const std::string_view &f_ext, const std::vector<std::string_view> &extensions)
 {
     for (const auto &ext : extensions) {
         if (f_ext == ext) {
@@ -36,6 +36,10 @@ std::pair<std::string, std::string> year_and_month(
     month << std::put_time(gmt, "%B");
     return std::pair{year.str(), month.str()};
 }
+
+const std::vector<std::string_view> extensions{
+    ".jpg", ".png", ".gif", ".raw", ".arw", ".mov", ".mp4", ".mts", ".vob"
+};
 
 const std::unordered_map<std::string_view, std::string_view> ext_to_dest{
     {".jpg", "photos"}, {".png", "photos"}, {".raw", "photos"}, {".arw", "photos"},
