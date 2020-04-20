@@ -36,12 +36,12 @@ std::pair<std::string, std::string> year_and_month(const std::filesystem::direct
 }
 
 const std::vector<std::string_view> extensions{
-    ".jpg", ".png", ".gif", ".raw", ".arw", ".mov", ".mp4", ".mts", ".vob"
+    ".jpg", ".png", ".gif", ".raw", ".arw", ".mov", ".mp4", ".mts", ".vob", ".jpeg", ".avi"
 };
 
 const std::unordered_map<std::string_view, std::string_view> ext_to_dest{
-    {".jpg", "photos"}, {".png", "photos"}, {".raw", "photos"}, {".arw", "photos"},
-    {".mp4", "movies"}, {".mov", "movies"}, {".mts", "movies"}, {".vob", "movies"},
+    {".jpg", "photos"}, {".png", "photos"}, {".raw", "photos"}, {".arw", "photos"}, {".jpeg", "photos"},
+    {".mp4", "movies"}, {".mov", "movies"}, {".mts", "movies"}, {".vob", "movies"}, {".avi", "movies"},
 };
 
 std::string_view dest_folder(const std::string_view &ext)
