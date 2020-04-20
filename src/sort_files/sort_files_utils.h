@@ -23,9 +23,7 @@ std::time_t to_time_t(TP tp)
 
 // It's 2020 and to get file modification date I need to write below lines!
 // Good job C++ commiters!
-std::pair<std::string, std::string> year_and_month(
-    const std::filesystem::directory_entry &file
-)
+std::pair<std::string, std::string> year_and_month(const std::filesystem::directory_entry &file)
 {
     auto f_time = std::filesystem::last_write_time(file);
     auto time_t = to_time_t(f_time);
