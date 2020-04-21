@@ -11,6 +11,7 @@ int main()
 {
     auto current_path = fs::current_path();
     std::cout << "program: sort_files\n";
+    std::cout << "---" << "\n";
     std::cout << "please confirm you want to run it inside " << current_path << " [y/n]\n";
 
     char confirm;
@@ -51,7 +52,8 @@ int main()
     }
     const auto stop = std::chrono::high_resolution_clock::now();
     const auto duration = duration_cast<std::chrono::milliseconds>(stop - start);
-    std::cout << "exec time: " << duration.count() << " ms\n";
-    std::cout << "found: " << f_counter << " files\n";
+    std::cout << "---" << "\n";
+    std::cout << "found files: " << f_counter << "\n";
+    std::cout << "exec time [ms]: " << duration.count() << "\n";
     return 0;
 }
