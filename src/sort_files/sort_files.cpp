@@ -40,8 +40,7 @@ int main()
         if (has_ext(f_ext, extensions)) {
             const auto&[year, month] = year_and_month(file);
             const auto &quart = std::to_string(quarter(month));
-            const auto
-                res_path = current_path.assign(dest_folder(f_ext)).append(year).append(quart);
+            const auto res_path = current_path.assign(dest_folder(f_ext)).append(year).append(quart);
             f_print(f_path, year, month, quart);
             fs::create_directories(current_path.assign(res_path));
             auto f_name = f_path.filename().string();
