@@ -36,3 +36,4 @@ Download:
 ```text
 Cpp_tools/bin/linux/sort_files
 ```
+* linux binary compiled with (gcc version 9.3.1 20200408 (Red Hat 9.3.1-2) (GCC) on x86_64 platform)
