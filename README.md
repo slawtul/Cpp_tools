@@ -1,5 +1,7 @@
 # Cpp_tools
 
+> _No boundaries, no limits, no compromises. That’s C++_
+
 ## sort_files
 
 sort_files program sorts image and movie files to quarter folders
