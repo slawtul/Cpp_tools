@@ -27,10 +27,10 @@ public:
             }
             const auto &f_path = file.path();
             auto f_ext = f_path.extension().string();
-            std::transform(f_ext.begin(), f_ext.end(), f_ext.begin(), ::tolower);
             if (f_ext.empty() || f_ext == ".") {
                 continue;
             }
+            std::transform(f_ext.begin(), f_ext.end(), f_ext.begin(), ::tolower);
             if (has_ext(f_ext, f_extensions)) {
                 const auto&[year, month] = year_and_month(file);
                 const auto &quart = std::to_string(quarter(month));
