@@ -93,7 +93,7 @@ private:
         return ext_to_dest.find(ext)->second;
     }
 
-    void f_print(
+    static void f_print(
         const std::filesystem::path &f_path,
         const std::string_view &year,
         const std::string_view &month,
