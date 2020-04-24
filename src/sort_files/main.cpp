@@ -17,7 +17,7 @@ int main()
     }
 
     const auto start = std::chrono::high_resolution_clock::now();
-    sort_files sf{current_path};
+    Sort_files sf{current_path};
     sf.start();
     const auto stop = std::chrono::high_resolution_clock::now();
 

@@ -8,10 +8,10 @@
 #include <vector>
 #include <unordered_map>
 
-class sort_files
+class Sort_files
 {
 public:
-    explicit sort_files(std::filesystem::path curr_path)
+    explicit Sort_files(std::filesystem::path curr_path)
         : curr_path(std::move(curr_path))
     {}
 
