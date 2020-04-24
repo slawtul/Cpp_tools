@@ -22,7 +22,7 @@ int main()
     const auto stop = std::chrono::high_resolution_clock::now();
 
     std::cout << "found files: " << sf.count_f() << "\n";
-    std::cout << "exec time [ms]: " <<
-              duration_cast<std::chrono::milliseconds>(stop - start).count() << "\n";
+    std::cout << "exec time [ms]: "
+              << duration_cast<std::chrono::milliseconds>(stop - start).count() << "\n";
     return 0;
 }
