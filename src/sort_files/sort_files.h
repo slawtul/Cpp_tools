@@ -8,16 +8,6 @@
 #include <vector>
 #include <unordered_map>
 
-template<typename TP>
-std::time_t to_time_t(TP tp)
-{
-    using namespace std::chrono;
-    const auto t_point_cst = time_point_cast<system_clock::duration>(
-        tp - TP::clock::now() + system_clock::now()
-    );
-    return system_clock::to_time_t(t_point_cst);
-}
-
 class sort_files
 {
 public:
@@ -54,7 +44,7 @@ public:
         }
     }
 
-    [[nodiscard]] int count_f() const
+    int count_f() const
     {
         return f_counter;
     }
@@ -127,6 +117,17 @@ private:
         month << std::put_time(gmt, "%B");
         return std::pair{year.str(), month.str()};
     }
+
+    template<typename TP>
+    std::time_t to_time_t(TP tp)
+    {
+        using namespace std::chrono;
+        const auto t_point_cst = time_point_cast<system_clock::duration>(
+            tp - TP::clock::now() + system_clock::now()
+        );
+        return system_clock::to_time_t(t_point_cst);
+    }
+
 };
 
 
