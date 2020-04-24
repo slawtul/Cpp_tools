@@ -20,6 +20,7 @@ public:
         std::filesystem::create_directory(curr_path / "photos");
         std::filesystem::create_directory(curr_path / "movies");
 
+        auto f_extensions = extensions();
         for (const auto &file : std::filesystem::directory_iterator(curr_path)) {
             if (file.is_directory()) {
                 continue;
@@ -30,7 +31,7 @@ public:
             if (f_ext.empty() || f_ext == ".") {
                 continue;
             }
-            if (has_ext(f_ext)) {
+            if (has_ext(f_ext, f_extensions)) {
                 const auto&[year, month] = year_and_month(file);
                 const auto &quart = std::to_string(quarter(month));
                 const auto res_path = curr_path.assign(dest_folder(f_ext)).append(year).append(quart);
@@ -64,9 +65,9 @@ private:
         {"December", 4}
     };
 
-    bool has_ext(const std::string_view &f_ext)
+    static bool has_ext(const std::string_view &f_ext, const std::vector<std::string_view> &exts)
     {
-        for (const auto &ext : extension()) {
+        for (const auto &ext : exts) {
             if (f_ext == ext) {
                 return true;
             }
@@ -79,7 +80,7 @@ private:
         return m_to_q.find(month)->second;
     }
 
-    std::vector<std::string_view> extension()
+    std::vector<std::string_view> extensions()
     {
         std::vector<std::string_view> exts;
         for (const auto &entry : ext_to_dest) {
@@ -129,6 +130,5 @@ private:
     }
 
 };
-
 
 #endif //SORT_FILES_H
