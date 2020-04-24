@@ -20,8 +20,8 @@ public:
         std::filesystem::create_directory(curr_path / "photos");
         std::filesystem::create_directory(curr_path / "movies");
 
-        auto f_extensions = extensions();
-        for (const auto &file : std::filesystem::directory_iterator(curr_path)) {
+        for (const auto f_extensions = extensions();
+             const auto &file : std::filesystem::directory_iterator(curr_path)) {
             if (file.is_directory()) {
                 continue;
             }
