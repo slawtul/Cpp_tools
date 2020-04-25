@@ -1,4 +1,4 @@
-#include "sort_files.h"
+#include "Sort_files.h"
 
 namespace fs = std::filesystem;
 namespace ch = std::chrono;
