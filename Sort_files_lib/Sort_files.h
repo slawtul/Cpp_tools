@@ -35,7 +35,7 @@ private:
     quarter(const std::string_view &month);
 
     static std::vector<std::string_view>
-    extensions();
+    f_extensions();
 
     static std::string_view
     dest_folder(const std::string_view &ext);
