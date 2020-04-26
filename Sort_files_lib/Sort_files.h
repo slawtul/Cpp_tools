@@ -13,11 +13,14 @@ class Sort_files
 public:
     explicit Sort_files(std::filesystem::path curr_path)
         : curr_path(std::move(curr_path))
-    {}
+    {
+    }
 
-    void start();
+    void
+    start();
 
-    int count_f() const;
+    int
+    count_f() const;
 
 private:
     static const std::unordered_map<std::string_view, std::string_view> ext_to_dest;
