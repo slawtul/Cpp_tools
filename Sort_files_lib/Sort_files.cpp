@@ -32,7 +32,7 @@ Sort_files::start()
         std::transform(f_ext.begin(), f_ext.end(), f_ext.begin(), ::tolower);
         if (has_ext(f_ext, f_exts)) {
             const auto&[year, month] = year_and_month(file);
-            const auto &quart = std::to_string(quarter(month));
+            const auto &quart = std::to_string(quarter_num(month));
             const auto res_path = curr_path.assign(dest_folder(f_ext)).append(year).append(quart);
             f_print(f_path, year, month, quart);
             std::filesystem::create_directories(curr_path.assign(res_path));
@@ -60,7 +60,7 @@ Sort_files::f_print(const std::filesystem::path &f_path, const std::string_view 
 }
 
 int
-Sort_files::quarter(const std::string_view &month)
+Sort_files::quarter_num(const std::string_view &month)
 {
     return month_to_quarter.find(month)->second;
 }
