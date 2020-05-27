@@ -79,9 +79,9 @@ Sort_files::has_ext(const std::string_view &f_ext, const std::vector<std::string
 std::vector<std::string_view>
 Sort_files::f_extensions()
 {
-    std::vector<std::string_view> exts;
+    std::vector<std::string_view> exts(ext_to_dest.size());
     for (const auto &entry : ext_to_dest) {
-        exts.push_back(entry.first);
+        exts.emplace_back(entry.first);
     }
     return exts;
 }
