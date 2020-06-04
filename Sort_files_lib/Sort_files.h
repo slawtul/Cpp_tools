@@ -23,8 +23,11 @@ public:
     count_f() const;
 
 private:
-    static const std::unordered_map<std::string_view, std::string_view> ext_to_dest;
-    static const std::unordered_map<std::string_view, int> month_to_quarter;
+    static const
+    std::unordered_map<std::string_view, std::string_view> ext_to_dest;
+
+    static const
+    std::unordered_map<std::string_view, int> month_to_quarter;
 
     // fields
     int f_counter{0};
