@@ -7,13 +7,15 @@ int main()
 {
     auto c_path = fs::current_path();
     std::cout << "program: sort_files\n";
-    std::cout << "please confirm you want to run it inside " << c_path << " [y/n]\n";
+    std::cout << "please confirm you want to run it inside "
+              << c_path << " [y/n]\n";
 
     char confirm;
     std::cin >> confirm;
 
-    if (confirm != 'y') {
-        std::cout << "stopped" << "\n";
+    if (confirm != 'y')
+    {
+        std::cout << "stopped\n";
         return 0;
     }
 
@@ -24,6 +26,7 @@ int main()
 
     std::cout << "found files: " << sf.count_f() << "\n";
     std::cout << "exec time [ms]: "
-              << duration_cast<ch::milliseconds>(stop - start).count() << "\n";
+              << duration_cast<ch::milliseconds>(stop - start).count()
+              << "\n";
     return 0;
 }
