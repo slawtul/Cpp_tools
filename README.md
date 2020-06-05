@@ -41,7 +41,7 @@ please confirm you want to run it inside "/home/slawtul/family" [y/n]
 Download:
 
 ```text
-Cpp_tools/bin/linux/sort_files
+Cpp_tools/Bin/linux/sort_files
 ```
 
 - linux binary compiled with (gcc version 9.3.1 20200408 (Red Hat 9.3.1-2)
