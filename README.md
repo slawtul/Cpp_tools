@@ -32,10 +32,30 @@ AFTER:
 Usage:
 
 ```text
+Run ./sort_files program inside folder
+[Pictures]$ ./sort_files
+```
+
+Example output:
+
+```text
 [slawtul@localhost family]$ ./sort_files
 program: sort_files
 please confirm you want to run it inside "/home/slawtul/family" [y/n]
+y
 
+"/home/slawtul/family/photos/20190818.jpg"     2020, May       quarter: 2
+"/home/slawtul/family/photos/20200607.jpg"     2020, June      quarter: 2
+"/home/slawtul/family/photos/87020825.jpg"     2020, February  quarter: 1
+"/home/slawtul/family/photos/8809128n.jpg"     2020, February  quarter: 1
+"/home/slawtul/family/photos/20200410.jpg"     2020, April     quarter: 2
+"/home/slawtul/family/photos/8757283n.jpg"     2020, February  quarter: 1
+"/home/slawtul/family/photos/874311_n.jpg"     2020, February  quarter: 1
+"/home/slawtul/family/photos/8749533n.jpg"     2020, February  quarter: 1
+"/home/slawtul/family/photos/851830_n.jpg"     2020, February  quarter: 1
+
+found files: 9
+exec time [ms]: 0
 ```
 
 Download:
