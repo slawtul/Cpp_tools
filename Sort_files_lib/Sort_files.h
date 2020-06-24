@@ -43,7 +43,7 @@ private:
     std::filesystem::path res_dest_path(
         const std::string_view &dest_folder,
         const std::string_view &year,
-        const std::string_view &quart);
+        const std::string_view &quarter);
 
     std::pair<std::string, std::string> year_and_month(
         const std::filesystem::directory_entry &file);

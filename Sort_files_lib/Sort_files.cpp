@@ -117,9 +117,9 @@ std::string_view Sort_files::dest_folder(const std::string_view &ext)
 std::filesystem::path Sort_files::res_dest_path(
     const std::string_view &dest_folder,
     const std::string_view &year,
-    const std::string_view &quart)
+    const std::string_view &quarter)
 {
-    return curr_path.assign(dest_folder).append(year).append(quart);
+    return curr_path.assign(dest_folder).append(year).append(quarter);
 }
 
 // It's 2020 and to get file modification date I need to write below lines!
