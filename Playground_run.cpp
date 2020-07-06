@@ -2,6 +2,6 @@
 
 int main()
 {
-    Playground playground{};
-    playground.showABCWithRange();
+    Playground pg{};
+    pg.showABCWithRange();
 }
