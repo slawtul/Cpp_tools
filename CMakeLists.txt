@@ -10,5 +10,11 @@ include_directories(Sort_files_lib)
 add_subdirectory(Sort_files_lib)
 target_link_libraries(sort_files Sort_files_lib)
 
+# playground program
+add_executable(playground Playground_run.cpp)
+include_directories(Playground_lib)
+add_subdirectory(Playground_lib)
+target_link_libraries(playground Playground_lib)
+
 # tests
 add_subdirectory(Catch_tests)

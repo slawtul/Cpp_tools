@@ -7,6 +7,7 @@
         "bitset": "cpp",
         "cstdlib": "cpp",
         "shared_mutex": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "ranges": "cpp"
     }
 }
