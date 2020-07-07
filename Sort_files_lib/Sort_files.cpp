@@ -53,17 +53,11 @@ void Sort_files::start()
         {
             const auto &[year, month] = year_and_month(file);
             const auto &quart = std::to_string(quarter_num(month));
-            const auto
-                &res_path = res_dest_path(dest_folder(f_ext), year, quart);
+            const auto &res_path = res_dest_path(dest_folder(f_ext), year, quart);
             f_print(f_path, year, month, quart);
             std::filesystem::create_directories(curr_path.assign(res_path));
             auto f_name = f_path.filename().string();
-            std::transform(
-                f_name.begin(),
-                f_name.end(),
-                f_name.begin(),
-                ::tolower
-            );
+            std::transform(f_name.begin(), f_name.end(), f_name.begin(), ::tolower);
             std::filesystem::rename(f_path, res_path / f_name);
             ++f_counter;
         }
