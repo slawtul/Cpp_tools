@@ -53,11 +53,17 @@ void Sort_files::start()
         {
             const auto &[year, month] = year_and_month(file);
             const auto &quart = std::to_string(quarter_num(month));
-            const auto &res_path = res_dest_path(dest_folder(f_ext), year, quart);
+            const auto
+                &res_path = res_dest_path(dest_folder(f_ext), year, quart);
             f_print(f_path, year, month, quart);
             std::filesystem::create_directories(curr_path.assign(res_path));
             auto f_name = f_path.filename().string();
-            std::transform(f_name.begin(), f_name.end(), f_name.begin(), ::tolower);
+            std::transform(
+                f_name.begin(),
+                f_name.end(),
+                f_name.begin(),
+                ::tolower
+            );
             std::filesystem::rename(f_path, res_path / f_name);
             ++f_counter;
         }
@@ -73,7 +79,8 @@ void Sort_files::f_print(
     const std::filesystem::path &f_path,
     const std::string_view &year,
     const std::string_view &month,
-    const std::string_view &quarter)
+    const std::string_view &quarter
+)
 {
     std::cout << f_path << "\t"
               << year << ", " << month << "\t"
@@ -87,7 +94,8 @@ int Sort_files::quarter_num(const std::string_view &month)
 
 bool Sort_files::has_ext(
     const std::string_view &f_ext,
-    const std::vector<std::string_view> &exts)
+    const std::vector<std::string_view> &exts
+)
 {
     for (const auto &ext : exts)
     {
@@ -117,7 +125,8 @@ std::string_view Sort_files::dest_folder(const std::string_view &ext)
 std::filesystem::path Sort_files::res_dest_path(
     const std::string_view &dest_folder,
     const std::string_view &year,
-    const std::string_view &quarter)
+    const std::string_view &quarter
+)
 {
     return curr_path.assign(dest_folder).append(year).append(quarter);
 }
@@ -125,7 +134,8 @@ std::filesystem::path Sort_files::res_dest_path(
 // It's 2020 and to get file modification date I need to write below lines!
 // Good job C++ commiters!
 std::pair<std::string, std::string> Sort_files::year_and_month(
-    const std::filesystem::directory_entry &file)
+    const std::filesystem::directory_entry &file
+)
 {
     auto f_time = std::filesystem::last_write_time(file);
     auto time_t = to_time_t(f_time);
