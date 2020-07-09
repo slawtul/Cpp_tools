@@ -2,5 +2,5 @@
 
 void Playground::showABCWithRange()
 {
-    std::cout << std::ranges::size("ABC") << "\n";
+  std::cout << std::ranges::size("ABC") << "\n";
 }

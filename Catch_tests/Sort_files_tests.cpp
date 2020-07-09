@@ -4,5 +4,5 @@
 
 TEST_CASE("first test case", "[Sort_files_tests]")
 {
-    REQUIRE(1 == 1);
+  REQUIRE(1 == 1);
 }
