@@ -10,14 +10,13 @@ int main()
     char confirm;
     std::cin >> confirm;
 
-    if (confirm != 'y')
-    {
+    if (confirm != 'y') {
         std::cout << "stopped\n";
         return 0;
     }
 
     const auto start = std::chrono::high_resolution_clock::now();
-    Sort_files sf{c_path};
+    Sort_files sf { c_path };
     sf.start();
     const auto stop = std::chrono::high_resolution_clock::now();
 
