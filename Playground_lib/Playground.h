@@ -4,8 +4,7 @@
 #include <iostream>
 #include <ranges>
 
-class Playground
-{
+class Playground {
 public:
     void showABCWithRange();
 };

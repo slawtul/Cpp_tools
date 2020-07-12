@@ -6,3 +6,7 @@ build/
 tags
 CMakeFiles/
 CMakeCache.txt
+*.cbp
+*.cmake
+Makefile
+CMakeLists.txt.user
