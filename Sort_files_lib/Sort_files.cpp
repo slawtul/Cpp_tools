@@ -1,16 +1,16 @@
 #include "Sort_files.h"
 
 const std::unordered_map<std::string_view, std::string_view>
-    Sort_files::ext_to_dest{{".jpg", "photos"}, {".png", "photos"},
-                            {".raw", "photos"}, {".arw", "photos"},
+    Sort_files::ext_to_dest{{".jpg", "photos"},  {".png", "photos"},
+                            {".raw", "photos"},  {".arw", "photos"},
                             {".jpeg", "photos"}, {".mp4", "movies"},
-                            {".mov", "movies"}, {".mts", "movies"},
-                            {".vob", "movies"}, {".avi", "movies"}};
+                            {".mov", "movies"},  {".mts", "movies"},
+                            {".vob", "movies"},  {".avi", "movies"}};
 
 const std::unordered_map<std::string_view, int> Sort_files::month_to_quarter{
-    {"January", 1}, {"February", 1}, {"March", 1}, {"April", 2},
-    {"May", 2}, {"June", 2}, {"July", 3}, {"August", 3},
-    {"September", 3}, {"October", 4}, {"November", 4}, {"December", 4},
+    {"January", 1},   {"February", 1}, {"March", 1},    {"April", 2},
+    {"May", 2},       {"June", 2},     {"July", 3},     {"August", 3},
+    {"September", 3}, {"October", 4},  {"November", 4}, {"December", 4},
 };
 
 void Sort_files::start() {
@@ -27,6 +27,7 @@ void Sort_files::start() {
     if (f_ext.empty() || f_ext == ".") {
       continue;
     }
+
     std::transform(f_ext.begin(), f_ext.end(), f_ext.begin(), ::tolower);
     if (has_ext(f_ext, f_exts)) {
       const auto &[year, month] = year_and_month(file);
@@ -99,7 +100,7 @@ Sort_files::year_and_month(const std::filesystem::directory_entry &file) {
   return std::pair{year.str(), month.str()};
 }
 
-template<typename TP> std::time_t Sort_files::to_time_t(TP tp) {
+template <typename TP> std::time_t Sort_files::to_time_t(TP tp) {
   using namespace std::chrono;
   const auto t_point_cst = time_point_cast<system_clock::duration>(
       tp - TP::clock::now() + system_clock::now());

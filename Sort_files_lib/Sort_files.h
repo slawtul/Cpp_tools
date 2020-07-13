@@ -46,7 +46,7 @@ private:
                const std::string_view &year, const std::string_view &month,
                const std::string_view &quarter);
 
-  template<typename TP> std::time_t to_time_t(TP tp);
+  template <typename TP> std::time_t to_time_t(TP tp);
 };
 
 #endif // SORT_FILES_H
