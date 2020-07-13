@@ -6,7 +6,7 @@
 
 class Playground {
 public:
-    void showABCWithRange();
+  void showABCWithRange();
 };
 
 #endif //PLAYGROUND_H
