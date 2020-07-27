@@ -18,10 +18,10 @@ int main() {
   Sort_files sf{c_path};
   sf.start();
   const auto stop = std::chrono::high_resolution_clock::now();
+  const auto duration =
+      std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
   std::cout << "found files: " << sf.count_f() << "\n";
-  std::cout << "exec time [ms]: "
-            << duration_cast<std::chrono::milliseconds>(stop - start).count()
-            << "\n";
+  std::cout << "exec time [ms]: " << duration.count() << "\n";
   return 0;
 }
