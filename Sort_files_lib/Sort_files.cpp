@@ -27,7 +27,6 @@ void Sort_files::start() {
     if (f_ext.empty() || f_ext == ".") {
       continue;
     }
-
     std::transform(f_ext.begin(), f_ext.end(), f_ext.begin(), ::tolower);
     if (has_ext(f_ext, f_exts)) {
       const auto &[year, month] = year_and_month(file);
