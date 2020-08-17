@@ -14,11 +14,11 @@ public:
       : curr_path(std::move(curr_path)) {}
 
   void start();
+
   int count_f() const;
 
 private:
-  static const std::unordered_map<std::string_view, std::string_view>
-      ext_to_dest;
+  static const std::unordered_map<std::string_view, std::string_view> ext_to_dest;
   static const std::unordered_map<std::string_view, int> month_to_quarter;
 
   // fields
@@ -42,11 +42,12 @@ private:
   std::pair<std::string, std::string>
   year_and_month(const std::filesystem::directory_entry &file);
 
-  void f_print(const std::filesystem::path &f_path,
-               const std::string_view &year, const std::string_view &month,
-               const std::string_view &quarter);
+  void
+  f_print(const std::filesystem::path &f_path, const std::string_view &year,
+          const std::string_view &month, const std::string_view &quarter);
 
-  template <typename TP> std::time_t to_time_t(TP tp);
+  template<typename TP>
+  std::time_t to_time_t(TP tp);
 };
 
 #endif // SORT_FILES_H
