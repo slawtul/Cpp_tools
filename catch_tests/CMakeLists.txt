@@ -1,0 +1,2 @@
+add_executable(catch_tests_run sort_files_tests.cpp)
+target_link_libraries(catch_tests_run sort_files_lib)

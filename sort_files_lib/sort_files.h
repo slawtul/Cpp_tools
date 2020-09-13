@@ -8,9 +8,9 @@
 #include <utility>
 #include <vector>
 
-class Sort_files {
+class sort_files {
 public:
-  explicit Sort_files(std::filesystem::path curr_path)
+  explicit sort_files(std::filesystem::path curr_path)
       : curr_path(std::move(curr_path)) {}
 
   void start();

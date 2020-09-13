@@ -11,9 +11,9 @@ struct person {
   person(std::string name_, int age_) : name(std::move(name_)), age(age_) {}
 };
 
-class Playground {
+class playground {
 public:
-  void showABCWithRange();
+  void show_ABC_with_range();
 
   void show_person_by_ref(person &p);
 

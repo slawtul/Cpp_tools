@@ -1,7 +1,7 @@
-#include "Sort_files.h"
+#include "sort_files.h"
 
 const std::unordered_map<std::string_view, std::string_view>
-    Sort_files::ext_to_dest{{".jpg",  "photos"},
+    sort_files::ext_to_dest{{".jpg",  "photos"},
                             {".png",  "photos"},
                             {".raw",  "photos"},
                             {".arw",  "photos"},
@@ -12,7 +12,7 @@ const std::unordered_map<std::string_view, std::string_view>
                             {".vob",  "movies"},
                             {".avi",  "movies"}};
 
-const std::unordered_map<std::string_view, int> Sort_files::month_to_quarter{
+const std::unordered_map<std::string_view, int> sort_files::month_to_quarter{
     {"January",   1},
     {"February",  1},
     {"March",     1},
@@ -27,7 +27,7 @@ const std::unordered_map<std::string_view, int> Sort_files::month_to_quarter{
     {"December",  4},
 };
 
-void Sort_files::start() {
+void sort_files::start() {
   std::filesystem::create_directory(curr_path / "photos");
   std::filesystem::create_directory(curr_path / "movies");
 
@@ -56,9 +56,9 @@ void Sort_files::start() {
   }
 }
 
-int Sort_files::count_f() const { return f_counter; }
+int sort_files::count_f() const { return f_counter; }
 
-void Sort_files::f_print(const std::filesystem::path &f_path,
+void sort_files::f_print(const std::filesystem::path &f_path,
                          const std::string_view &year,
                          const std::string_view &month,
                          const std::string_view &quarter) {
@@ -66,11 +66,11 @@ void Sort_files::f_print(const std::filesystem::path &f_path,
             << "quarter: " << quarter << "\n";
 }
 
-int Sort_files::quarter_num(const std::string_view &month) {
+int sort_files::quarter_num(const std::string_view &month) {
   return month_to_quarter.find(month)->second;
 }
 
-bool Sort_files::has_ext(const std::string_view &f_ext,
+bool sort_files::has_ext(const std::string_view &f_ext,
                          const std::vector<std::string_view> &exts) {
   for (const auto &ext : exts) {
     if (f_ext == ext) {
@@ -80,7 +80,7 @@ bool Sort_files::has_ext(const std::string_view &f_ext,
   return false;
 }
 
-std::vector<std::string_view> Sort_files::f_extensions() {
+std::vector<std::string_view> sort_files::f_extensions() {
   std::vector<std::string_view> exts(ext_to_dest.size());
   for (const auto &entry : ext_to_dest) {
     exts.emplace_back(entry.first);
@@ -88,12 +88,12 @@ std::vector<std::string_view> Sort_files::f_extensions() {
   return exts;
 }
 
-std::string_view Sort_files::dest_folder(const std::string_view &ext) {
+std::string_view sort_files::dest_folder(const std::string_view &ext) {
   return ext_to_dest.find(ext)->second;
 }
 
 std::filesystem::path
-Sort_files::res_dest_path(const std::string_view &dest_folder,
+sort_files::res_dest_path(const std::string_view &dest_folder,
                           const std::string_view &year,
                           const std::string_view &quarter) {
   return curr_path.assign(dest_folder).append(year).append(quarter);
@@ -102,7 +102,7 @@ Sort_files::res_dest_path(const std::string_view &dest_folder,
 // It's 2020 and to get file modification date I need to write below lines!
 // Good job C++ commiters!
 std::pair<std::string, std::string>
-Sort_files::year_and_month(const std::filesystem::directory_entry &file) {
+sort_files::year_and_month(const std::filesystem::directory_entry &file) {
   auto f_time = std::filesystem::last_write_time(file);
   auto time_t = to_time_t(f_time);
   auto *gmt = std::gmtime(&time_t);
@@ -114,7 +114,7 @@ Sort_files::year_and_month(const std::filesystem::directory_entry &file) {
 }
 
 template<typename TP>
-std::time_t Sort_files::to_time_t(TP tp) {
+std::time_t sort_files::to_time_t(TP tp) {
   using namespace std::chrono;
   const auto t_point_cst = time_point_cast<system_clock::duration>(
       tp - TP::clock::now() + system_clock::now());

@@ -1,20 +1,19 @@
 #include <iostream>
-#include <ranges>
 
-#include "Playground.h"
+#include "playground.h"
 
-void Playground::showABCWithRange() {
+void playground::show_ABC_with_range() {
   std::cout << std::ranges::size("ABC") << "\n";
 }
 
-void Playground::show_person_by_ptr(person *p) {
+void playground::show_person_by_ptr(person *p) {
   if (p) {
     std::cout << p->name << ", " << p->age << "\n";
     p->name = "John1";
   }
 }
 
-void Playground::show_person_by_ref(person &p) {
+void playground::show_person_by_ref(person &p) {
   std::cout << p.name << ", " << p.age << "\n";
   p.name = "Mike1";
 }

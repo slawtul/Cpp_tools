@@ -61,7 +61,7 @@ exec time [ms]: 0
 Download:
 
 ```text
-Cpp_tools/Bin/linux/sort_files
+Cpp_tools/bin/linux/sort_files
 ```
 
 - linux binary compiled with (gcc version 9.3.1 20200408 (Red Hat 9.3.1-2)

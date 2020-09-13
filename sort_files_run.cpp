@@ -1,4 +1,4 @@
-#include "Sort_files.h"
+#include "sort_files.h"
 
 int main() {
   auto c_path = std::filesystem::current_path();
@@ -15,7 +15,7 @@ int main() {
   }
 
   const auto start = std::chrono::high_resolution_clock::now();
-  Sort_files sf{c_path};
+  sort_files sf{c_path};
   sf.start();
   const auto stop = std::chrono::high_resolution_clock::now();
   const auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(
