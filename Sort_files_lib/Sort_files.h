@@ -28,7 +28,6 @@ private:
   // methods
   bool has_ext(const std::string_view &f_ext,
                const std::vector<std::string_view> &exts);
-
   int quarter_num(const std::string_view &month);
 
   std::vector<std::string_view> f_extensions();
