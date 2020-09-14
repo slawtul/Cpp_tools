@@ -64,5 +64,4 @@ Download:
 Cpp_tools/bin/linux/sort_files
 ```
 
-- linux binary compiled with (gcc version 9.3.1 20200408 (Red Hat 9.3.1-2)
-  (GCC) on x86_64 platform)
+- linux binary compiled with g++ (GCC) 10.2.1 (Red Hat)
