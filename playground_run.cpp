@@ -1,6 +1,7 @@
 #include <memory>
 #include <iostream>
 #include "playground.h"
+#include "simple_struct.h"
 
 int main() {
   playground pg{};
@@ -16,4 +17,13 @@ int main() {
 
   std::cout << p1->name << "\n";
   std::cout << p2->name << "\n";
+
+  std::cout << "Simple structure" << "\n";
+  simple_struct ss{};
+  std::cout << ss.name << "\n";
+  std::cout << ss.d_number << "\n";
+  std::cout << ss.number << "\n";
+  std::cout << ss.truth << "\n";
+  std::cout << ss.digit << "\n";
+  std::cout << ss.sign << "\n";
 }
