@@ -9,8 +9,7 @@ struct person
     std::string name;
     int age;
 
-    person(std::string name_, int age_)
-      : name(std::move(name_)), age(age_)
+    person(std::string name_, int age_) : name(std::move(name_)), age(age_)
     {
     }
 };

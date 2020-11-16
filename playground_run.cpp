@@ -57,11 +57,9 @@ int main()
     items.emplace_back(A{});
     items.emplace_back(A{});
 
-    auto call_update = [](auto& item)
-    { return item.update(); };
+    auto call_update = [](auto& item) { return item.update(); };
 
-    for (auto& item : items)
-    {
+    for (auto& item : items) {
         std::visit(call_update, item);
     }
 
@@ -69,12 +67,10 @@ int main()
     A a_arr[]{ A{}, A{}, A{}};
     B b_arr[]{ B{}, B{}, B{}};
 
-    const auto do_update = [](auto& arr)
-    {
-      for (auto& item : arr)
-      {
-          item.update();
-      }
+    const auto do_update = [](auto& arr) {
+        for (auto& item : arr) {
+            item.update();
+        }
     };
 
     do_update(a_arr);
