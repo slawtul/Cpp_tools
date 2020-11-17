@@ -75,12 +75,7 @@ int sort_files::quarter_num(const std::string_view& month)
 
 bool sort_files::has_ext(const std::string_view& f_ext, const std::vector<std::string_view>& exts)
 {
-    for (const auto& ext : exts) {
-        if (f_ext == ext) {
-            return true;
-        }
-    }
-    return false;
+    return std::any_of(exts.begin(), exts.end(), [&](const auto& ext) { return ext == f_ext; });
 }
 
 std::vector<std::string_view> sort_files::f_extensions()
