@@ -32,8 +32,8 @@ void sort_files::start()
     std::filesystem::create_directory(curr_path / "photos");
     std::filesystem::create_directory(curr_path / "movies");
 
-    for (const auto f_exts = f_extensions();
-            const auto& file : std::filesystem::directory_iterator(curr_path)) {
+    for (const auto f_exts = f_extensions(); const auto& file : std::filesystem::directory_iterator(curr_path))
+    {
         if (file.is_directory()) {
             continue;
         }
@@ -43,7 +43,8 @@ void sort_files::start()
             continue;
         }
         std::transform(f_ext.begin(), f_ext.end(), f_ext.begin(), ::tolower);
-        if (has_ext(f_ext, f_exts)) {
+        if (has_ext(f_ext, f_exts))
+        {
             const auto &[year, month] = year_and_month(file);
             const auto& quart = std::to_string(quarter_num(month));
             const auto& res_path = res_dest_path(dest_folder(f_ext), year, quart);
@@ -62,8 +63,7 @@ int sort_files::count_f() const
     return f_counter;
 }
 
-void sort_files::f_print(const std::filesystem::path& f_path, const std::string_view& year,
-        const std::string_view& month, const std::string_view& quarter)
+void sort_files::f_print(const std::filesystem::path& f_path, const std::string_view& year, const std::string_view& month, const std::string_view& quarter)
 {
     std::cout << f_path << "\t" << year << ", " << month << "\t" << "quarter: " << quarter << "\n";
 }
@@ -92,8 +92,7 @@ std::string_view sort_files::dest_folder(const std::string_view& ext)
     return ext_to_dest.find(ext)->second;
 }
 
-std::filesystem::path sort_files::res_dest_path(const std::string_view& dest_folder,
-        const std::string_view& year, const std::string_view& quarter)
+std::filesystem::path sort_files::res_dest_path(const std::string_view& dest_folder, const std::string_view& year, const std::string_view& quarter)
 {
     return curr_path.assign(dest_folder).append(year).append(quarter);
 }
@@ -117,7 +116,6 @@ template<typename TP>
 std::time_t sort_files::to_time_t(TP tp)
 {
     using namespace std::chrono;
-    const auto t_point_cst =
-            time_point_cast<system_clock::duration>(tp - TP::clock::now() + system_clock::now());
+    const auto t_point_cst = time_point_cast<system_clock::duration>(tp - TP::clock::now() + system_clock::now());
     return system_clock::to_time_t(t_point_cst);
 }
