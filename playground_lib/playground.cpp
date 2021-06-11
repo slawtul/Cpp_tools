@@ -20,3 +20,9 @@ void playground::show_person_by_ref(person& p)
     std::cout << p.name << ", " << p.age << "\n";
     p.name = "Mike1";
 }
+
+void playground::show_person_by_uptr(const std::unique_ptr<person>& p)
+{
+    std::cout << p->name << ", " << p->age << "\n";
+    p->name = "Uniq person name";
+}

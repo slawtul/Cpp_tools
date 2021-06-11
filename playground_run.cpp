@@ -32,6 +32,7 @@ int main()
     {
         pg.show_person_by_ptr(p1.get());
         pg.show_person_by_ref(*p2);
+        pg.show_person_by_uptr(p1);
     }
 
     std::cout << p1->name << "\n";
