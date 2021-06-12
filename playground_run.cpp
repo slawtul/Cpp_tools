@@ -27,8 +27,8 @@ int main()
     playground pg{};
     pg.show_ABC_with_range();
 
-    auto p1 = std::make_unique<person>("John", 41);
-    auto p2 = std::make_unique<person>("Mike", 40);
+    auto p1=std::make_unique<person>("John",41);
+    auto p2=std::make_unique<person>("Mike",40);
 
     {
         pg.show_person_by_ptr(p1.get());
@@ -49,7 +49,7 @@ int main()
     std::cout<<ss.sign<<"\n";
 
     std::cout<<"\n---"<<"variant"<<"\n";
-    using var = std::variant<A, B>;
+    using var=std::variant<A, B>;
     std::vector<var> items;
     items.emplace_back(A{});
     items.emplace_back(B{});
@@ -59,23 +59,23 @@ int main()
     items.emplace_back(A{});
     items.emplace_back(A{});
 
-    auto call_update = [](auto& item)
+    auto call_update=[](auto& item)
     {
         return item.update();
     };
 
-    for (auto& item : items)
+    for (auto& item:items)
     {
-        std::visit(call_update, item);
+        std::visit(call_update,item);
     }
 
     std::cout<<"\n---"<<"another approach"<<"\n";
-    A a_arr[]{A{}, A{}, A{}};
-    B b_arr[]{B{}, B{}, B{}};
+    A a_arr[]{A{},A{},A{}};
+    B b_arr[]{B{},B{},B{}};
 
-    const auto do_update = [](auto& arr)
+    const auto do_update=[](auto& arr)
     {
-        for (auto& item : arr)
+        for(auto& item:arr)
         {
             item.update();
         }
@@ -89,5 +89,4 @@ int main()
     bank.make_transfer();
 
     return 0;
-
 }
