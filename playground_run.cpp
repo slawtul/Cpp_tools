@@ -2,14 +2,15 @@
 #include <iostream>
 #include <variant>
 #include <vector>
-#include "playground.h"
-#include "simple_struct.h"
+#include <playground.h>
+#include <simple_struct.h>
+#include <bank.h>
 
 struct A
 {
     void update()
     {
-        std::cout << "from A struct..." << "\n";
+        std::cout<<"from A struct..."<<"\n";
     }
 };
 
@@ -17,7 +18,7 @@ struct B
 {
     void update()
     {
-        std::cout << "from B struct..." << "\n";
+        std::cout<<"from B struct..."<<"\n";
     }
 };
 
@@ -35,19 +36,19 @@ int main()
         pg.show_person_by_uptr(p1);
     }
 
-    std::cout << p1->name << "\n";
-    std::cout << p2->name << "\n";
+    std::cout<<p1->name<<"\n";
+    std::cout<<p2->name<<"\n";
 
-    std::cout << "Simple structure" << "\n";
+    std::cout<<"Simple structure"<<"\n";
     simple_struct ss{};
-    std::cout << ss.name << "\n";
-    std::cout << ss.d_number << "\n";
-    std::cout << ss.number << "\n";
-    std::cout << ss.truth << "\n";
-    std::cout << ss.digit << "\n";
-    std::cout << ss.sign << "\n";
+    std::cout<<ss.name<<"\n";
+    std::cout<<ss.d_number<<"\n";
+    std::cout<<ss.number<<"\n";
+    std::cout<<ss.truth<<"\n";
+    std::cout<<ss.digit<<"\n";
+    std::cout<<ss.sign<<"\n";
 
-    std::cout << "\n---" << "variant" << "\n";
+    std::cout<<"\n---"<<"variant"<<"\n";
     using var = std::variant<A, B>;
     std::vector<var> items;
     items.emplace_back(A{});
@@ -58,18 +59,24 @@ int main()
     items.emplace_back(A{});
     items.emplace_back(A{});
 
-    auto call_update = [](auto& item) { return item.update(); };
+    auto call_update = [](auto& item)
+    {
+        return item.update();
+    };
 
-    for (auto& item : items) {
+    for (auto& item : items)
+    {
         std::visit(call_update, item);
     }
 
-    std::cout << "\n---" << "another approach" << "\n";
-    A a_arr[]{ A{}, A{}, A{}};
-    B b_arr[]{ B{}, B{}, B{}};
+    std::cout<<"\n---"<<"another approach"<<"\n";
+    A a_arr[]{A{}, A{}, A{}};
+    B b_arr[]{B{}, B{}, B{}};
 
-    const auto do_update = [](auto& arr) {
-        for (auto& item : arr) {
+    const auto do_update = [](auto& arr)
+    {
+        for (auto& item : arr)
+        {
             item.update();
         }
     };
@@ -77,6 +84,9 @@ int main()
     do_update(a_arr);
     do_update(b_arr);
 
+    ConsoleLogger logger{};
+    Bank bank{logger};
+    bank.make_transfer();
 
     return 0;
 
