@@ -58,10 +58,11 @@ found files: 9
 exec time [ms]: 0
 ```
 
-Download:
+### How to build and run
 
-```text
-Cpp_tools/bin/linux/sort_files
+```bash
+cd sort_files
+meson build
+ninja
+./sort_files
 ```
-
-- linux binary compiled with g++ (GCC) 10.2.1 (Red Hat)
