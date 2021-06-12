@@ -14,18 +14,18 @@ const std::unordered_map<std::string_view, std::string_view> sort_files::ext_to_
 };
 
 const std::unordered_map<std::string_view, int> sort_files::month_to_quarter{
-    {"January",   1},
-    {"February",  1},
-    {"March",     1},
-    {"April",     2},
-    {"May",       2},
-    {"June",      2},
-    {"July",      3},
-    {"August",    3},
-    {"September", 3},
-    {"October",   4},
-    {"November",  4},
-    {"December",  4},
+    {"January",1},
+    {"February",1},
+    {"March",1},
+    {"April",2},
+    {"May",2},
+    {"June",2},
+    {"July",3},
+    {"August",3},
+    {"September",3},
+    {"October",4},
+    {"November",4},
+    {"December",4},
 };
 
 void sort_files::start()
@@ -78,9 +78,9 @@ int sort_files::quarter_num(const std::string_view& month)
     return month_to_quarter.find(month)->second;
 }
 
-bool sort_files::has_ext(const std::string_view& f_ext, const std::vector<std::string_view>& exts)
+bool sort_files::has_ext(const std::string_view& f_ext,const std::vector<std::string_view>& exts)
 {
-    return std::any_of(exts.begin(), exts.end(), [&](const auto& ext) {return ext == f_ext;});
+    return std::any_of(exts.begin(),exts.end(), [&](const auto& ext) {return ext == f_ext;});
 }
 
 std::vector<std::string_view> sort_files::f_extensions()
@@ -98,7 +98,7 @@ std::string_view sort_files::dest_folder(const std::string_view& ext)
     return ext_to_dest.find(ext)->second;
 }
 
-std::filesystem::path sort_files::res_dest_path(const std::string_view& dest_folder, const std::string_view& year, const std::string_view& quarter)
+std::filesystem::path sort_files::res_dest_path(const std::string_view& dest_folder,const std::string_view& year, const std::string_view& quarter)
 {
     return curr_path.assign(dest_folder).append(year).append(quarter);
 }
