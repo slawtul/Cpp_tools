@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+
 struct Logger
 {
 	virtual void log()=0;
@@ -18,7 +19,20 @@ struct ConsoleLogger:Logger
 
 	~ConsoleLogger()
 	{
-		std::cout<<"ConsoleLogger destructor launched;";
+		std::cout<<"ConsoleLogger destructor launched\n";
+	}
+};
+
+struct FileLogger:Logger
+{
+	void log() override
+	{
+		std::cout<<"transaction logged in a file...\n";
+	}
+
+	~FileLogger()
+	{
+		std::cout<<"FileLogger destructor launched\n";
 	}
 };
 

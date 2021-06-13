@@ -85,7 +85,8 @@ int main()
     do_update(b_arr);
 
     ConsoleLogger logger{};
-    Bank bank{logger};
+    FileLogger flogger{};
+    Bank bank{flogger};
     bank.make_transfer();
 
     return 0;
