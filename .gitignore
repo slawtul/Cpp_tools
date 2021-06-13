@@ -10,3 +10,6 @@ CMakeCache.txt
 *.cmake
 Makefile
 CMakeLists.txt.user
+*.sublime-workspace
+*.sublime-project
+compile_commands.json
