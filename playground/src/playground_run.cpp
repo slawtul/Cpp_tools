@@ -59,14 +59,10 @@ int main()
     items.emplace_back(A{});
     items.emplace_back(A{});
 
-    auto call_update=[](auto& item)
-    {
-        return item.update();
-    };
-
+    auto call_update_on=[](auto& item){return item.update();};
     for (auto& item:items)
     {
-        std::visit(call_update,item);
+        std::visit(call_update_on,item);
     }
 
     std::cout<<"\n---"<<"another approach"<<"\n";

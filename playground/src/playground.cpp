@@ -9,7 +9,7 @@ void playground::show_ABC_with_range()
 
 void playground::show_person_by_ptr(person* p)
 {
-    if (p) {
+    if(p){
         std::cout<<p->name<<", "<<p->age<<"\n";
         p->name = "John1";
     }
