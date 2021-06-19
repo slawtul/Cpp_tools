@@ -22,6 +22,11 @@ struct B
     }
 };
 
+std::vector<int> create_vec()
+{
+    return std::vector<int>{1,2,3,4,5};
+}
+
 int main()
 {
     playground pg{};
@@ -80,10 +85,41 @@ int main()
     do_update(a_arr);
     do_update(b_arr);
 
-    ConsoleLogger logger{};
-    FileLogger flogger{};
-    Bank bank{flogger};
+    //BANK, DIFFERENT LOGGERS
+    ConsoleLogger c_logger{};
+    FileLogger f_logger{};
+    Bank bank{&f_logger};
     bank.make_transfer();
+    bank.set_logger(&c_logger);
+    bank.make_transfer();
+
+
+    //TRAP!!!
+    std::vector<std::string> v;
+    v.push_back("hello");
+    auto& hello=v[0];
+    std::cout<<hello.c_str()<<std::endl;
+
+    v.push_back("c++");
+
+    //This is trap
+    //push_back() copies array to different mememory sa hello points now to corrupted memory cell
+    //std::cout<<hello.c_str()<<std::endl;
+
+    //Below is ok
+    auto& hello1=v[0];
+    std::cout<<hello1.c_str()<<std::endl;
+
+
+    std::vector<int> vec1{};
+    vec1=std::move(create_vec());
+    for(const auto&v:vec1)
+    {
+        std::cout<<v;
+    }
+    std::cout<<"\n";
+
 
     return 0;
 }
+
