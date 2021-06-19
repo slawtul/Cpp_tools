@@ -1,31 +1,31 @@
 #include "sort_files.h"
 
 const std::unordered_map<std::string_view, std::string_view> sort_files::ext_to_dest{
-        {".jpg",  "photos"},
-        {".png",  "photos"},
-        {".raw",  "photos"},
-        {".arw",  "photos"},
-        {".jpeg", "photos"},
-        {".mp4",  "movies"},
-        {".mov",  "movies"},
-        {".mts",  "movies"},
-        {".vob",  "movies"},
-        {".avi",  "movies"}
+    {".jpg",  "photos"},
+    {".png",  "photos"},
+    {".raw",  "photos"},
+    {".arw",  "photos"},
+    {".jpeg", "photos"},
+    {".mp4",  "movies"},
+    {".mov",  "movies"},
+    {".mts",  "movies"},
+    {".vob",  "movies"},
+    {".avi",  "movies"}
 };
 
 const std::unordered_map<std::string_view, int> sort_files::month_to_quarter{
-        {"January",   1},
-        {"February",  1},
-        {"March",     1},
-        {"April",     2},
-        {"May",       2},
-        {"June",      2},
-        {"July",      3},
-        {"August",    3},
-        {"September", 3},
-        {"October",   4},
-        {"November",  4},
-        {"December",  4},
+    {"January",   1},
+    {"February",  1},
+    {"March",     1},
+    {"April",     2},
+    {"May",       2},
+    {"June",      2},
+    {"July",      3},
+    {"August",    3},
+    {"September", 3},
+    {"October",   4},
+    {"November",  4},
+    {"December",  4},
 };
 
 void sort_files::start()
