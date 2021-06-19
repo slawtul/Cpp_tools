@@ -10,7 +10,7 @@ struct A
 {
     void update()
     {
-        std::cout<<"from A struct..."<<"\n";
+        std::cout << "from A struct..." << "\n";
     }
 };
 
@@ -18,13 +18,13 @@ struct B
 {
     void update()
     {
-        std::cout<<"from B struct..."<<"\n";
+        std::cout << "from B struct..." << "\n";
     }
 };
 
 std::vector<int> create_vec()
 {
-    return std::vector<int>{1,2,3,4,5};
+    return std::vector<int>{1, 2, 3, 4, 5};
 }
 
 int main()
@@ -32,8 +32,8 @@ int main()
     playground pg{};
     pg.show_ABC_with_range();
 
-    auto p1=std::make_unique<person>("John",41);
-    auto p2=std::make_unique<person>("Mike",40);
+    auto p1 = std::make_unique<person>("John", 41);
+    auto p2 = std::make_unique<person>("Mike", 40);
 
     {
         pg.show_person_by_ptr(p1.get());
@@ -41,20 +41,20 @@ int main()
         pg.show_person_by_uptr(p1);
     }
 
-    std::cout<<p1->name<<"\n";
-    std::cout<<p2->name<<"\n";
+    std::cout << p1->name << "\n";
+    std::cout << p2->name << "\n";
 
-    std::cout<<"Simple structure"<<"\n";
+    std::cout << "Simple structure" << "\n";
     simple_struct ss{};
-    std::cout<<ss.name<<"\n";
-    std::cout<<ss.d_number<<"\n";
-    std::cout<<ss.number<<"\n";
-    std::cout<<ss.truth<<"\n";
-    std::cout<<ss.digit<<"\n";
-    std::cout<<ss.sign<<"\n";
+    std::cout << ss.name << "\n";
+    std::cout << ss.d_number << "\n";
+    std::cout << ss.number << "\n";
+    std::cout << ss.truth << "\n";
+    std::cout << ss.digit << "\n";
+    std::cout << ss.sign << "\n";
 
-    std::cout<<"\n---"<<"variant"<<"\n";
-    using var=std::variant<A, B>;
+    std::cout << "\n---" << "variant" << "\n";
+    using var = std::variant<A, B>;
     std::vector<var> items;
     items.emplace_back(A{});
     items.emplace_back(B{});
@@ -64,20 +64,19 @@ int main()
     items.emplace_back(A{});
     items.emplace_back(A{});
 
-    auto call_update_on=[](auto& item){return item.update();};
-    for (auto& item:items)
-    {
-        std::visit(call_update_on,item);
+    auto call_update_on = [](auto& item)
+    { return item.update(); };
+    for (auto& item:items) {
+        std::visit(call_update_on, item);
     }
 
-    std::cout<<"\n---"<<"another approach"<<"\n";
-    A a_arr[]{A{},A{},A{}};
-    B b_arr[]{B{},B{},B{}};
+    std::cout << "\n---" << "another approach" << "\n";
+    A a_arr[]{A{}, A{}, A{}};
+    B b_arr[]{B{}, B{}, B{}};
 
-    const auto do_update=[](auto& arr)
+    const auto do_update = [](auto& arr)
     {
-        for(auto& item:arr)
-        {
+        for (auto& item:arr) {
             item.update();
         }
     };
@@ -97,8 +96,8 @@ int main()
     //TRAP!!!
     std::vector<std::string> v;
     v.push_back("hello");
-    auto& hello=v[0];
-    std::cout<<hello.c_str()<<std::endl;
+    auto& hello = v[0];
+    std::cout << hello.c_str() << std::endl;
 
     v.push_back("c++");
 
@@ -107,17 +106,16 @@ int main()
     //std::cout<<hello.c_str()<<std::endl;
 
     //Below is ok
-    auto& hello1=v[0];
-    std::cout<<hello1.c_str()<<std::endl;
+    auto& hello1 = v[0];
+    std::cout << hello1.c_str() << std::endl;
 
 
     std::vector<int> vec1{};
-    vec1=std::move(create_vec());
-    for(const auto&v:vec1)
-    {
-        std::cout<<v;
+    vec1 = std::move(create_vec());
+    for (const auto& v:vec1) {
+        std::cout << v;
     }
-    std::cout<<"\n";
+    std::cout << "\n";
 
 
     return 0;
