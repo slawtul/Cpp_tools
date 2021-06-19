@@ -20,6 +20,7 @@ struct ConsoleLogger:Logger
 	~ConsoleLogger()
 	{
 		std::cout<<"ConsoleLogger destructor launched\n";
+		std::cout<<"Cool! Correct ending...\n";
 	}
 };
 
@@ -38,18 +39,23 @@ struct FileLogger:Logger
 
 struct Bank
 {
-	Bank(Logger& _logger):logger{_logger}
+	Bank(Logger* logger):logger{logger}
 	{
 	};
 
 	void make_transfer()
 	{
 		std::cout<<"making transfer...\n";
-		logger.log();
+		logger->log();
+	}
+
+	void set_logger(Logger* new_logger)
+	{
+		logger=new_logger;
 	}
 
 private:
-	Logger& logger;
+	Logger* logger;
 };
 
 #endif // BANK_STRUCT_H
