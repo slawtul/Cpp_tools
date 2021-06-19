@@ -103,7 +103,7 @@ int main()
     v.push_back("c++");
 
     //This is trap
-    //push_back() copies array to different mememory sa hello points now to corrupted memory cell
+    //push_back() copies array to different memeory so hello points now to corrupted memory cell
     //std::cout<<hello.c_str()<<std::endl;
 
     //Below is ok
