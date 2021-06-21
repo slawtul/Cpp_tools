@@ -100,7 +100,7 @@ std::filesystem::path sort_files::res_dest_path(const std::string_view& dest_fol
 }
 
 // It's 2020 and to get file modification date I need to write below lines!
-// Good job C++ commiters!
+// Good job C++ committers!
 std::pair<std::string, std::string>
 sort_files::year_and_month(const std::filesystem::directory_entry& file)
 {
