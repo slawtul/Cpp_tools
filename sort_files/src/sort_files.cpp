@@ -46,7 +46,7 @@ void sort_files::start()
 
         std::transform(f_ext.begin(), f_ext.end(), f_ext.begin(), ::tolower);
         if (has_ext(f_ext, f_exts)) {
-            const auto &[year, month]=year_and_month(file);
+            const auto& [year, month] = year_and_month(file);
             const auto& quart = std::to_string(quarter_num(month));
             const auto& res_path = res_dest_path(dest_folder(f_ext), year, quart);
             f_print(f_path, year, month, quart);
@@ -76,8 +76,7 @@ int sort_files::quarter_num(const std::string_view& month)
 
 bool sort_files::has_ext(const std::string_view& f_ext, const std::vector<std::string_view>& exts)
 {
-    return std::any_of(exts.begin(), exts.end(), [&](const auto& ext)
-    { return ext == f_ext; });
+    return std::any_of(exts.begin(), exts.end(), [&](const auto& ext) { return ext == f_ext; });
 }
 
 std::vector<std::string_view> sort_files::f_extensions()
