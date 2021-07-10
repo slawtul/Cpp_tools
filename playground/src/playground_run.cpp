@@ -95,11 +95,11 @@ int main()
 
     //TRAP!!!
     std::vector<std::string> v;
-    v.push_back("hello");
+    v.emplace_back("hello");
     auto& hello = v[0];
     std::cout << hello.c_str() << std::endl;
 
-    v.push_back("c++");
+    v.emplace_back("c++");
 
     //This is trap
     //push_back() copies array to different memeory so hello points now to corrupted memory cell
