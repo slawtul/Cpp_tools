@@ -27,7 +27,6 @@ int main()
     //
     // PASSING STACKED OBJECT TO FUNCTION WITH * AND &
     //
-
     std::cout << "// PASSING STACKED OBJECT TO FUNCTION WITH * AND &" << "\n";
 
     Widget widget{};
@@ -43,7 +42,6 @@ int main()
     //
     // PASSING HEAPED OBJECT TO FUNCTION WITH * AND &
     //
-
     std::cout << "// PASSING HEAPED OBJECT TO FUNCTION WITH * AND &" << "\n";
 
     auto uptr_widget = std::make_unique<Widget>();
