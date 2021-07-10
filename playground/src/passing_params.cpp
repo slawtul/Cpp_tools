@@ -24,7 +24,10 @@ void call_REF_widget(Widget& widget)
 
 int main()
 {
+    //
     // PASSING STACKED OBJECT TO FUNCTION WITH * AND &
+    //
+
     std::cout << "// PASSING STACKED OBJECT TO FUNCTION WITH * AND &" << "\n";
 
     Widget widget{};
@@ -37,9 +40,10 @@ int main()
     call_REF_widget(widget);
     std::cout << widget.id << "\n";
 
-
-
+    //
     // PASSING HEAPED OBJECT TO FUNCTION WITH * AND &
+    //
+
     std::cout << "// PASSING HEAPED OBJECT TO FUNCTION WITH * AND &" << "\n";
 
     auto uptr_widget = std::make_unique<Widget>();
