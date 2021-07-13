@@ -29,6 +29,15 @@ void call_UPTR_widget(std::unique_ptr<Widget> uptr_widget)
     uptr_widget->id = 1;
 }
 
+void call_REF_UPTR_widget(std::unique_ptr<Widget>& uptr_widget)
+{
+    std::cout << "passing with ref unique ptr\n"; // when we want to set new unique pointer
+    uptr_widget = std::make_unique<Widget>();
+    uptr_widget->id = 4;
+    std::cout << uptr_widget->id << "\n";
+    uptr_widget->id = 1;
+}
+
 int main()
 {
     //
@@ -74,5 +83,17 @@ int main()
         auto uptr_widget = std::make_unique<Widget>();
         call_UPTR_widget(std::move(uptr_widget));
         // uptr_widget->id = 0; segmentation fault - uptr_widget does not exist here
+    }
+
+    //
+    // PASSING HEAPED OBJECT TO FUNCTION WITH REF UNIQUE PTR
+    //
+    {
+        std::cout << "\n// PASSING HEAPED OBJECT TO FUNCTION WITH REF UNIQUE PTR\n";
+
+        auto uptr_widget = std::make_unique<Widget>();
+        call_REF_UPTR_widget(uptr_widget);
+
+        std::cout << uptr_widget->id << "\n";
     }
 }
