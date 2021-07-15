@@ -1,6 +1,3 @@
-//
-// Created by slawtul on 14.07.2021.
-//
 #include <iostream>
 
 int main(int argc, char const* argv[])
